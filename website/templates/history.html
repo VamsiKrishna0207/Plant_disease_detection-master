@@ -1,0 +1,44 @@
+{% extends "base.html" %} {% block title %}Login{% endblock %} {% block content
+%}
+<style>
+  table{
+    width:100%;
+    border-collapse: collapse;
+    text-align:center;
+  }
+  th,
+  td {
+    padding:10px; 
+    border: 1px solid rgba(0,0,0,0.6);
+  }
+  .myImage{
+    text-align:center;
+  }
+</style>
+<br/>
+<br/>
+<h1>History</h1>
+<br/>
+<table>
+  <tr>
+  <th>SN.O</th>
+  <th>User Email</th>
+  <th>Time</th>
+  <th>Image</th>
+  <th>Prediction</th>
+  </tr>
+  {% for log in values %}
+  <tr>
+    <th>{{log.id}}</th>
+    <th>{{log.user_email}}</th>
+    <th>{{log.pre_date}}</th>
+    <th><img src="data:{{log.mimetype}};base64,{{Res(log.img)}}" width="100px"></th>
+    <th>{{log.prediction}}</th>
+  </li>
+  {% endfor %}
+
+</table>
+
+
+
+{% endblock %}
